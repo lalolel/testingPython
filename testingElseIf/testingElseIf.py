@@ -1,7 +1,7 @@
 # Sal's Shipping
-# Sonny Li
 
-weight = 80
+
+weight = 60
 
 # Ground Shipping 🚚
 
