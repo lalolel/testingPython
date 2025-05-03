@@ -1,7 +1,7 @@
 """
 Description:
 A simple program that calculates the area of a circle or a triangle based on user input.
-Author: 
+Author: Lalolel
 """
 
 # Inform the user that the program is starting
