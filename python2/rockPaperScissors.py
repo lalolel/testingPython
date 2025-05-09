@@ -1,5 +1,8 @@
 import random  # Import the random module for generating random choices
-
+"""
+Lalolel - Learn Python
+Rock Paper Scissors
+"""
 # List of possible choices
 options = ["ROCK", "PAPER", "SCISSORS"]
 
