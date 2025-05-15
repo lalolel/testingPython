@@ -1,3 +1,16 @@
+
+# lists comprehension
+new_list = [expression for item in iterable if condition]
+squares = [x**2 for x in range(5)]
+print(squares)  # Output: [0, 1, 4, 9, 16]
+even_numbers = [x for x in range(10) if x % 2 == 0]
+print(even_numbers)  # Output: [0, 2, 4, 6, 8]
+words = ["hello", "world", "python"]
+uppercase_words = [word.upper() for word in words]
+print(uppercase_words)  # Output: ['HELLO', 'WORLD', 'PYTHON']
+matrix = [[j for j in range(3)] for i in range(3)]
+print(matrix)  # Output: [[0, 1, 2], [0, 1, 2], [0, 1, 2]]
+
 # Create a list
 my_list = [10, 20, 30, 40, 50, 60, 70, 80]
 
