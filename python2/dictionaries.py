@@ -41,3 +41,13 @@ l = [i ** 2 for i in range(1, 11)]
 # Should be [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
 print l[2:9:2]
+
+my_list = range(1, 11) # List of numbers 1 - 10
+
+# Omitting Indices Add your code below!
+print my_list[::2]
+
+my_list = range(1, 11)
+
+# Reversing a List Add your code below!
+backwards = my_list[::-1]
