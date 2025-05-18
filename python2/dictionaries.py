@@ -1,0 +1,35 @@
+my_dict = {
+  'name': 'Nick',
+  'age':  31,
+  'occupation': 'Dentist',
+}
+
+print my_dict.keys()
+print my_dict.values()
+
+for key in my_dict:
+  print key, my_dict[key]
+
+for number in range(5):
+  print number,
+
+d = { 
+  "name": "Eric",
+  "age": 26
+}
+
+for key in d:
+  print key, d[key],
+
+for letter in "Eric":
+  print letter,  # note the comma!
+
+evens_to_50 = [i for i in range(51) if i % 2 == 0]
+print evens_to_50
+
+doubles_by_3 = [x * 2 for x in range(1, 6) if (x * 2) % 3 == 0]
+
+# Complete the following line. Use the line above for help.
+even_squares = [x ** 2 for x in range(1, 12) if x % 2 == 0]
+
+print even_squares
