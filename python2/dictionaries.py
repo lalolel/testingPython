@@ -131,3 +131,20 @@ movies = {
 }
 
 print movies.items()
+
+''' Use a list comprehension to create a list, threes_and_fives, that consists only of the numbers between 1 and 15 (inclusive) that are evenly divisible by 3 or 5. '''
+
+threes_and_fives = [x for x in range(1, 16) if x % 3 == 0 or x % 5 == 0]
+
+''' The string in the editor is garbled in two ways:
+
+Our message is backwards.
+The letter we want is every other letter.
+Use list slicing to extract the message and save it to a variable called message. '''
+str = "ABCDEFGHIJ"
+start, end, stride = 1, 6, 2
+str[start:end:stride]
+
+garbled = "!XeXgXaXsXsXeXmX XtXeXrXcXeXsX XeXhXtX XmXaX XI"
+
+message = garbled[::-2]
