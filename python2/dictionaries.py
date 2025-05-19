@@ -121,3 +121,13 @@ Use filter() and a lambda expression to print out only the squares that are betw
 squares = [x ** 2 for x in range(1, 11)]
 
 print filter(lambda x: x >= 30 and x <= 70, squares)
+
+# Iterating Over Dictionaries
+
+movies = {
+  "Monty Python and the Holy Grail": "Great",
+  "Monty Python's Life of Brian": "Good",
+  "Monty Python's Meaning of Life": "Okay"
+}
+
+print movies.items()
