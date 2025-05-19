@@ -136,3 +136,40 @@ a = 0b10111011
 mask = 0b100
 desired = a | mask
 print bin(desired)
+
+
+''' Using the XOR (^) operator is very useful for flipping bits. Using ^ on a bit with the number one will return a result where that bit is flipped.
+
+In the editor is the 8 bit variable a. Use a bitmask and the value a in order to achieve a result where all of the bits in a are flipped. Be sure to print your answer as a bin() string! '''
+
+a = 0b11101110
+
+mask = 0b11111111
+desired = a ^ mask
+
+print bin(desired)
+
+''' Finally, you can also use the left shift (<<) and right shift (>>) operators to slide masks into place.
+
+a = 0b101 
+# Tenth bit mask
+mask = (0b1 << 9)  # One less than ten 
+desired = a ^ mask
+
+
+Let’s say that I want to turn on the 10th bit from the right of the integer a.
+
+Instead of writing out the entire number, we slide a bit over using the << operator.
+
+We use 9 because we only need to slide the mask nine places over from the first bit to reach the tenth bit.
+
+Define a function called flip_bit that takes the inputs (number, n).
+
+Flip the nth bit (with the ones bit being the first bit) and store it in result.
+
+Return the result of calling bin(result). '''
+
+def flip_bit(number, n):
+  bit_to_flip = 0b1 << (n -1)
+  result = number ^ bit_to_flip
+  return bin(result)
