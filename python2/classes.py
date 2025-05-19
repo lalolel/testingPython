@@ -223,3 +223,10 @@ class Equilateral(Triangle):
     self.angle1 = self.angle
     self.angle2 = self.angle
     self.angle3 = self.angle
+
+class Car(object):
+  condition = "new"
+
+my_car = Car()
+
+print my_car.condition
