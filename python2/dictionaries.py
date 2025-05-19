@@ -72,3 +72,44 @@ to_21 = range(1, 22)
 odds = to_21[::2]
 
 middle_third = to_21[7:14]
+
+
+''' One of the more powerful aspects of Python is that it allows for a style of programming called functional programming, which means that you’re allowed to pass 
+Preview: Docs Loading link description
+functions
+ around just as if they were 
+Preview: Docs A variable is used to store data that will be used by the program. This data can be a number, a string, a Boolean, a list or some other data type. Every variable has a name which can consist of letters, numbers, and the underscore character . The equal sign = is used to assign a value to a variable. After the initial assignment is made, the value of a variable can be updated to new values as needed. A variable can have a short name (like x and y) or a more descriptive name (age, grade, grocerylist). Rules for Python variables: - A variable name must start with a letter or the underscore character. It cannot start with a number. - A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _). - Variable names are case-sensitive (num, Num, and NUM are three different variables).
+variables
+ or values. Sometimes we take this for granted, but not all languages allow this!
+
+Check out the code at the right. See the 
+Preview: Docs Produces an anonymous function expression.
+lambda
+ bit? Typing
+
+lambda x: x % 3 == 0
+
+
+Is the same as
+
+def by_three(x):
+  return x % 3 == 0 '''
+
+
+my_list = range(16)
+print filter(lambda x: x % 3 == 0, my_list)
+
+''' Lambda functions are defined using the following syntax:
+
+my_list = range(16)
+filter(lambda x: x % 3 == 0, my_list)
+
+
+Lambdas are useful when you need a quick function to do some work for you.
+
+If you plan on creating a function you’ll use over and over, you’re better off using def and giving that function a name. '''
+
+languages = ["HTML", "JavaScript", "Python", "Ruby"]
+
+# Add arguments to the filter()
+print filter(lambda x: x == "Python", languages)
