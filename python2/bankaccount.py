@@ -23,13 +23,13 @@ class BankAccount(object):
         # Check if the amount is valid (greater than zero)
         if amount <= 0:
             print "Error: Cannot deposit zero or negative amount"
-            return
-        # Print the deposit amount
-        print "Depositing ${:.2f}".format(amount)
-        # Increment the balance by the deposit amount
-        self.balance += amount
-        # Display the new balance by calling show_balance method
-        self.show_balance()
+        else:
+            # Print the amount deposited
+            print "Depositing ${:.2f}".format(amount)
+            # Increment the balance by the deposit amount
+            self.balance += amount
+            # Display the new balance by calling show_balance method
+            self.show_balance()
     
     # Step 14, 15, 16, 17, & 18: Add a withdraw method
     def withdraw(self, amount):
@@ -37,13 +37,13 @@ class BankAccount(object):
         if amount > self.balance:
             # Print error message if withdrawal amount exceeds balance
             print "Error: Cannot withdraw more than available balance"
-            return
-        # Print the withdrawal amount
-        print "Withdrawing ${:.2f}".format(amount)
-        # Decrement the balance by the withdrawal amount
-        self.balance -= amount
-        # Display the new balance by calling show_balance method
-        self.show_balance()
+        else:
+            # Print the withdrawal amount
+            print "Withdrawing ${:.2f}".format(amount)
+            # Decrement the balance by the withdrawal amount
+            self.balance -= amount
+            # Display the new balance by calling show_balance method
+            self.show_balance()
 
 
 # Step 19: Create a BankAccount object
