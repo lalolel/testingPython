@@ -42,6 +42,15 @@ print(new_numbers)
 evens = [x for x in range(10) if x % 2 == 0]
 print(evens)  # Output: [0, 2, 4, 6, 8]
 
+# List of ages
+ages = [12, 17, 19, 25, 30, 16, 21, 14]
+
+# Using list comprehension to keep only ages above 18
+adult_ages = [age for age in ages if age > 18]
+
+# Printing the result
+print(adult_ages)
+
 
 #4. Nested list comprehension
 #Flatten a list of lists:
