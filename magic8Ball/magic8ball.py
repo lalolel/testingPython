@@ -1,9 +1,9 @@
 # Import the random module to generate random numbers
 import random
 
-# Set up the person asking the question and their question
-name = "Joe"
-question = "Will I win the lottery?"
+# Get the user's name and question through input
+name = input("What's your name? ")
+question = input("Ask the Magic 8 Ball a question: ")
 
 # Initialize an empty string to store the Magic 8 Ball's answer
 answer = ""
