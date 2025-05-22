@@ -3,7 +3,7 @@ Description:
 This program calculates the area of a circle or a triangle based on user input. 
 The user can select 'C' for Circle or 'T' for Triangle. 
 The program then asks for the necessary dimensions and calculates the area.
-Author: 
+Author: Lalolel
 """
 # Inform the user that the program is starting
 print("Welcome to the Area Calculator!")
