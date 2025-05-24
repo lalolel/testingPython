@@ -20,3 +20,26 @@ new_df.loc[new_df.population_proper >= 100000, "location"] = "urban"  # Assigns 
 
 # Step 5: Print the updated DataFrame with location classification
 print(new_df.head(15))  # Displays the updated DataFrame to see the newly assigned 'location' column
+
+# Paste histogram code:
+age = new_df["age"]
+sns.displot(age)
+plt.show()
+
+# Paste mean age location code:
+location_mean_age = new_df.groupby("location").age.mean()
+print(location_mean_age)
+
+# Paste barplot code:
+plt.close()
+sns.barplot(
+    data=new_df,
+    x= "location",
+   	y= "age"
+)
+plt.show()
+
+# Paste violinplot code:
+plt.close()
+sns.violinplot(data=new_df, x="location", y="age") 
+plt.show()
