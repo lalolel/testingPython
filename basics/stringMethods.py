@@ -44,7 +44,7 @@ love_maybe_full = '\n'.join(love_maybe_lines_stripped)
 print(love_maybe_full)
 
 
-# find 
+# replace 
 
 toomer_bio = \
 """
@@ -52,6 +52,8 @@ Nathan Pinchback Tomer, who adopted the name Jean Tomer early in his literary ca
 """
 
 toomer_bio_fixed = toomer_bio.replace("Tomer", "Toomer")
+
+# find 
 
 god_wills_it_line_one = "The very earth will disown you"
 
