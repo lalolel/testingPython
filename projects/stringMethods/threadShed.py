@@ -1,3 +1,7 @@
+# Thread Shed Sales Analysis Project
+# Following the exact steps from the instructions
+
+# The actual daily sales data string from Thread Shed
 daily_sales = \
 """Edith Mcbride   ;,;$1.21   ;,;   white ;,; 
 09/15/17   ,Herbert Tran   ;,;   $7.29;,; 
@@ -105,66 +109,51 @@ green&white;,;09/15/17,   Gail Phelps   ;,;$30.52
 ;,; green&white&blue   ;,; 09/15/17 , Myrtle Morris 
 ;,;   $22.66   ;,; green&white&blue;,;09/15/17"""
 
-#------------------------------------------------
-# Thread Shed Sales Analysis Project
-
-# The daily sales data string (example data based on the project description)
-daily_sales = "Alice ;,; $15.50 ;,; red & blue ;,; 2023-01-15,, Bob ;,; $8.25 ;,; white ;,; 2023-01-15,, Charlie ;,; $22.75 ;,; green & yellow & purple ;,; 2023-01-15,, Diana ;,; $12.00 ;,; black ;,; 2023-01-15,, Eve ;,; $18.50 ;,; blue & white ;,; 2023-01-15,, Frank ;,; $9.75 ;,; red ;,; 2023-01-15,, Grace ;,; $14.25 ;,; white & green ;,; 2023-01-15,, Henry ;,; $7.50 ;,; yellow ;,; 2023-01-15,, Ivy ;,; $25.00 ;,; purple & black & red ;,; 2023-01-15,, Jack ;,; $11.75 ;,; white ;,; 2023-01-15"
-
-print("Original daily_sales string:")
-print(daily_sales)
-print("\n" + "="*50 + "\n")
-
-# Step 1: Inspect the daily_sales string structure
 print("STEP 1: Inspecting the daily_sales string")
+# Each transaction is separated by: ,,
+# Each piece of data within a transaction is separated by: ;,;
 print("Each transaction is separated by: ,,")
 print("Each piece of data within a transaction is separated by: ;,;")
 print()
 
-# Step 2: Replace ;,; with a different character to avoid splitting issues
-print("STEP 2: Replacing ;,; with a safe character")
+print("STEP 2: Replace ;,; with a different character")
+# Replace all instances of ;,; with | to avoid comma confusion
 daily_sales_replaced = daily_sales.replace(";,;", "|")
-print("Replaced ;,; with | character")
+print("Replaced all ;,; with | character")
 print()
 
-# Step 3: Split the string into individual transactions
-print("STEP 3: Splitting into individual transactions")
+print("STEP 3: Split the string into individual transactions")
+# Split around commas to get individual transactions
 daily_transactions = daily_sales_replaced.split(",,")
-print(f"Number of transactions: {len(daily_transactions)}")
+print(f"Split into {len(daily_transactions)} transactions")
 print()
 
-# Step 4: Print daily_transactions to inspect
-print("STEP 4: Printing daily_transactions")
-for i, transaction in enumerate(daily_transactions):
-    print(f"Transaction {i+1}: {transaction}")
+print("STEP 4: Print daily_transactions")
+print(daily_transactions)
 print()
 
-# Step 5: Define empty list for split transactions
-print("STEP 5: Creating empty list for split transactions")
+print("STEP 5: Define empty list daily_transactions_split")
+# Create empty list for split transactions
 daily_transactions_split = []
 print("Created empty list: daily_transactions_split")
 print()
 
-# Step 6: Split each transaction into its data points
-print("STEP 6: Splitting each transaction into data points")
+print("STEP 6: Split each transaction into data points")
+# Iterate through daily_transactions and split each around |
 for transaction in daily_transactions:
-    # Split around the character we used to replace ;,; (which is |)
     split_transaction = transaction.split("|")
     daily_transactions_split.append(split_transaction)
 print(f"Split {len(daily_transactions_split)} transactions into data points")
 print()
 
-# Step 7: Print daily_transactions_split to inspect
-print("STEP 7: Printing daily_transactions_split")
-for i, transaction in enumerate(daily_transactions_split):
-    print(f"Transaction {i+1}: {transaction}")
+print("STEP 7: Print daily_transactions_split")
+print(daily_transactions_split)
 print()
 
-# Step 8: Clean up whitespace from each data point
-print("STEP 8: Cleaning up whitespace")
+print("STEP 8: Clean up whitespace")
+# Define empty list and clean up whitespace
 transactions_clean = []
 for transaction in daily_transactions_split:
-    # Create a clean transaction by stripping whitespace from each data point
     clean_transaction = []
     for data_point in transaction:
         clean_transaction.append(data_point.strip())
@@ -172,140 +161,106 @@ for transaction in daily_transactions_split:
 print("Cleaned up whitespace from all transactions")
 print()
 
-# Step 9: Print transactions_clean to verify
-print("STEP 9: Printing cleaned transactions")
-for i, transaction in enumerate(transactions_clean):
-    print(f"Transaction {i+1}: {transaction}")
+print("STEP 9: Print transactions_clean")
+print(transactions_clean)
 print()
 
-# Step 10: Create three empty lists for organizing data
-print("STEP 10: Creating lists for customers, sales, and thread_sold")
+print("STEP 10: Create three empty lists")
+# Create three empty lists for organizing data
 customers = []
 sales = []
 thread_sold = []
 print("Created empty lists: customers, sales, thread_sold")
 print()
 
-# Step 11: Extract data from each transaction
-print("STEP 11: Extracting data from transactions")
+print("STEP 11: Extract data from each transaction")
+# Iterate through transactions_clean and extract data
 for transaction in transactions_clean:
-    # Each transaction has: [customer_name, sale_amount, thread_colors, date]
-    customers.append(transaction[0])    # Customer name
-    sales.append(transaction[1])        # Sale amount
-    thread_sold.append(transaction[2])  # Thread colors
+    if len(transaction) >= 3:  # Make sure we have at least customer, sale, thread
+        customers.append(transaction[0])    # Customer name
+        sales.append(transaction[1])        # Sale amount  
+        thread_sold.append(transaction[2])  # Thread colors
 print("Extracted customer names, sales amounts, and threads sold")
 print()
 
-# Step 12: Print the three lists to verify
-print("STEP 12: Printing extracted data")
-print(f"Customers: {customers}")
-print(f"Sales: {sales}")
-print(f"Thread sold: {thread_sold}")
+print("STEP 12: Print customers, sales, and thread_sold")
+print("Customers:", customers)
+print()
+print("Sales:", sales)
+print()
+print("Thread sold:", thread_sold)
 print()
 
-# Step 13: Initialize total_sales variable
-print("STEP 13: Calculating total sales")
+print("STEP 13: Define total_sales variable")
+# Initialize total_sales to 0
 total_sales = 0
-print("Initialized total_sales = 0")
+print("Set total_sales = 0")
 print()
 
-# Step 14: Calculate total sales by processing the sales list
-print("STEP 14: Processing sales amounts")
+print("STEP 14: Calculate total sales")
+# Iterate through sales, remove $, convert to float, and add to total
 for sale in sales:
-    # Remove the $ sign and convert to float
     sale_amount = float(sale.replace("$", ""))
     total_sales += sale_amount
-    print(f"Added ${sale_amount:.2f} to total")
-
-print(f"Total sales calculated: ${total_sales:.2f}")
+print("Processed all sales amounts")
 print()
 
-# Step 15: Print total sales
-print("STEP 15: Final total sales")
-print(f"Thread Shed made ${total_sales:.2f} today!")
+print("STEP 15: Print total_sales")
+print(f"Total sales: ${total_sales}")
+print(f"Thread Shed made ${total_sales} today!")
 print()
 
-# Step 16: Inspect thread_sold list
-print("STEP 16: Inspecting thread_sold list")
+print("STEP 16: Print thread_sold and inspect it")
 print("Thread sold list:")
-for i, thread in enumerate(thread_sold):
-    print(f"  {i+1}: {thread}")
+print(thread_sold)
 print("Notice: Some items contain multiple colors separated by &")
 print()
 
-# Step 17: Create list for individual thread colors
-print("STEP 17: Creating list for individual thread colors")
+print("STEP 17: Define empty list thread_sold_split")
+# Create empty list for individual thread colors
 thread_sold_split = []
 print("Created empty list: thread_sold_split")
 print()
 
-# Step 18: Split multi-color entries and add individual colors
-print("STEP 18: Processing thread colors")
-for thread_entry in thread_sold:
-    if "&" in thread_entry:
-        # Multiple colors - split by & and add each color individually
-        colors_in_entry = thread_entry.split("&")
-        for color in colors_in_entry:
+print("STEP 18: Process thread colors")
+# Iterate through thread_sold and handle single/multiple colors
+for item in thread_sold:
+    if "&" in item:
+        # Multiple colors - split by & and add each individually
+        colors = item.split("&")
+        for color in colors:
             thread_sold_split.append(color.strip())
-            print(f"Added individual color: {color.strip()}")
     else:
         # Single color - add as is
-        thread_sold_split.append(thread_entry.strip())
-        print(f"Added single color: {thread_entry.strip()}")
-
-print(f"\nAll individual thread colors: {thread_sold_split}")
-print(f"Total individual threads sold: {len(thread_sold_split)}")
+        thread_sold_split.append(item.strip())
+print("Processed all thread colors into individual entries")
 print()
 
-# Step 19: Define color_count function
-print("STEP 19: Defining color_count function")
+print("STEP 19: Define color_count function")
+# Define function to count specific colors
 def color_count(color):
-    """
-    Count how many times a specific color appears in thread_sold_split
-    
-    Args:
-        color (str): The color to count
-    
-    Returns:
-        int: Number of times the color appears
-    """
     count = 0
     for thread_color in thread_sold_split:
         if thread_color == color:
             count += 1
     return count
-
 print("Defined color_count function")
 print()
 
-# Step 20: Test the color_count function
-print("STEP 20: Testing color_count function")
+print("STEP 20: Test color_count function")
+# Test the function with 'white'
 white_count = color_count('white')
-print(f"Testing color_count('white'): {white_count}")
+print(f"color_count('white') = {white_count}")
 print()
 
-# Step 21: Define the colors list
-print("STEP 21: Defining available colors")
+print("STEP 21: Define colors list")
+# Define list of all available colors
 colors = ['red', 'yellow', 'green', 'white', 'black', 'blue', 'purple']
-print(f"Available colors: {colors}")
+print(f"Colors available: {colors}")
 print()
 
-# Step 22: Print summary of each color sold
-print("STEP 22: Final summary of thread colors sold")
-print("="*40)
-print("THREAD SHED DAILY SALES SUMMARY")
-print("="*40)
-print(f"Total Sales: ${total_sales:.2f}")
-print(f"Number of Customers: {len(customers)}")
-print(f"Total Individual Threads Sold: {len(thread_sold_split)}")
-print("\nThread Colors Sold Today:")
-print("-" * 25)
-
+print("STEP 22: Print summary using .format() method")
+# Use .format() method to print summary for each color
 for color in colors:
     count = color_count(color)
     print("Today we sold {} threads of {} color.".format(count, color))
-
-print("\nDetailed breakdown:")
-print(f"Customers: {customers}")
-print(f"Individual sales: {sales}")
-print(f"All thread colors sold: {thread_sold_split}")
