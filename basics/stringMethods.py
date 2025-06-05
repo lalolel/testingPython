@@ -45,3 +45,7 @@ Nathan Pinchback Tomer, who adopted the name Jean Tomer early in his literary ca
 """
 
 toomer_bio_fixed = toomer_bio.replace("Tomer", "Toomer")
+
+god_wills_it_line_one = "The very earth will disown you"
+
+disown_placement = god_wills_it_line_one.find("disown")
