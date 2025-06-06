@@ -109,6 +109,9 @@ green&white;,;09/15/17,   Gail Phelps   ;,;$30.52
 ;,; green&white&blue   ;,; 09/15/17 , Myrtle Morris 
 ;,;   $22.66   ;,; green&white&blue;,;09/15/17"""
 
+# Assuming daily_sales is defined somewhere above this code
+# daily_sales = "..."
+
 print("STEP 1: Inspecting the daily_sales string")
 # Each transaction is separated by: ,,
 # Each piece of data within a transaction is separated by: ;,;
@@ -124,7 +127,7 @@ print()
 
 print("STEP 3: Split the string into individual transactions")
 # Split around commas to get individual transactions
-daily_transactions = daily_sales_replaced.split(",,")
+daily_transactions = daily_sales_replaced.split(",")
 print(f"Split into {len(daily_transactions)} transactions")
 print()
 
@@ -151,14 +154,14 @@ print(daily_transactions_split)
 print()
 
 print("STEP 8: Clean up whitespace")
-# Define empty list and clean up whitespace
+# Define empty list and clean up whitespace using strip() method
 transactions_clean = []
 for transaction in daily_transactions_split:
     clean_transaction = []
     for data_point in transaction:
-        clean_transaction.append(data_point.strip())
+        clean_transaction.append(data_point.replace(" \n", "").strip(" "))
     transactions_clean.append(clean_transaction)
-print("Cleaned up whitespace from all transactions")
+print("Cleaned up whitespace from all transactions using strip() method")
 print()
 
 print("STEP 9: Print transactions_clean")
@@ -198,11 +201,12 @@ print("Set total_sales = 0")
 print()
 
 print("STEP 14: Calculate total sales")
-# Iterate through sales, remove $, convert to float, and add to total
+# Iterate through sales, remove $ using replace(), convert to float, and add to total
 for sale in sales:
+    # Strip off the $ using replace() method and convert to float
     sale_amount = float(sale.replace("$", ""))
     total_sales += sale_amount
-print("Processed all sales amounts")
+print("Processed all sales amounts using replace() method to remove $")
 print()
 
 print("STEP 15: Print total_sales")
@@ -226,14 +230,14 @@ print("STEP 18: Process thread colors")
 # Iterate through thread_sold and handle single/multiple colors
 for item in thread_sold:
     if "&" in item:
-        # Multiple colors - split by & and add each individually
-        colors = item.split("&")
-        for color in colors:
+        # Multiple colors - split by & using split() method and add each individually
+        colors_in_item = item.split("&")
+        for color in colors_in_item:
             thread_sold_split.append(color.strip())
     else:
-        # Single color - add as is
+        # Single color - add as is (with strip to be consistent)
         thread_sold_split.append(item.strip())
-print("Processed all thread colors into individual entries")
+print("Processed all thread colors using split() method for multiple colors")
 print()
 
 print("STEP 19: Define color_count function")
